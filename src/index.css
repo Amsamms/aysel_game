@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+/* Custom magical fantasy theme */
+:root {
+  --color-primary: #9333ea;
+  --color-secondary: #ec4899;
+  --color-accent: #fbbf24;
+  --color-sparkle: #fef08a;
+  --color-magic: #c084fc;
+  --color-fairy: #a78bfa;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+body {
+  font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', cursive, sans-serif;
+  background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #581c87 100%);
+}
+
+/* Prevent pull-to-refresh on mobile */
+body {
+  overscroll-behavior-y: contain;
+}
+
+/* Magical button glow effect */
+.btn-magic {
+  position: relative;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  border: none;
+  border-radius: 20px;
+  padding: 16px 32px;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(147, 51, 234, 0.4);
+}
+
+.btn-magic:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 25px rgba(147, 51, 234, 0.6);
+}
+
+.btn-magic:active {
+  transform: scale(0.98);
+}
+
+/* Sparkle animation */
+@keyframes sparkle {
+  0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
+  50% { opacity: 1; transform: scale(1) rotate(180deg); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 5px var(--color-sparkle); }
+  50% { box-shadow: 0 0 20px var(--color-sparkle), 0 0 40px var(--color-magic); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+/* Star rating styles */
+.star {
+  color: #4b5563;
+  transition: all 0.3s ease;
+}
+
+.star.filled {
+  color: #fbbf24;
+  text-shadow: 0 0 10px #fbbf24;
+}

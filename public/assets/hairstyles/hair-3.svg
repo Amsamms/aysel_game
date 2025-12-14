@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 180">
+  <!-- Curly locks -->
+  <circle cx="30" cy="40" r="20" fill="none" stroke="#be185d" stroke-width="8"/>
+  <circle cx="70" cy="30" r="25" fill="none" stroke="#ec4899" stroke-width="10"/>
+  <circle cx="90" cy="25" r="20" fill="none" stroke="#be185d" stroke-width="8"/>
+  <circle cx="130" cy="40" r="20" fill="none" stroke="#ec4899" stroke-width="8"/>
+  <path d="M20 60 Q10 100 25 140 Q15 160 30 180" stroke="#be185d" fill="none" stroke-width="15"/>
+  <path d="M140 60 Q150 100 135 140 Q145 160 130 180" stroke="#ec4899" fill="none" stroke-width="15"/>
+</svg>

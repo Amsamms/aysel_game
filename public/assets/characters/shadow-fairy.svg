@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300">
+  <!-- Wings -->
+  <ellipse cx="45" cy="150" rx="35" ry="55" fill="#581c87" opacity="0.6"/>
+  <ellipse cx="155" cy="150" rx="35" ry="55" fill="#581c87" opacity="0.6"/>
+  <!-- Body -->
+  <ellipse cx="100" cy="220" rx="40" ry="50" fill="#faf5ff"/>
+  <!-- Dress -->
+  <path d="M60 200 Q100 180 140 200 L150 270 Q100 280 50 270 Z" fill="#3b0764"/>
+  <!-- Glowing runes on dress -->
+  <circle cx="100" cy="230" r="3" fill="#a855f7"/>
+  <circle cx="80" cy="250" r="2" fill="#a855f7"/>
+  <circle cx="120" cy="245" r="2" fill="#a855f7"/>
+  <!-- Head -->
+  <circle cx="100" cy="110" r="50" fill="#faf5ff"/>
+  <!-- Hair -->
+  <path d="M50 90 Q30 40 60 20 Q100 5 140 20 Q170 40 150 90 Q160 150 145 200 L55 200 Q40 150 50 90" fill="#581c87"/>
+  <!-- Eyes -->
+  <ellipse cx="80" cy="105" rx="12" ry="16" fill="white"/>
+  <ellipse cx="120" cy="105" rx="12" ry="16" fill="white"/>
+  <circle cx="82" cy="108" r="8" fill="#7c3aed"/>
+  <circle cx="122" cy="108" r="8" fill="#7c3aed"/>
+  <circle cx="85" cy="104" r="3" fill="white"/>
+  <circle cx="125" cy="104" r="3" fill="white"/>
+  <!-- Blush -->
+  <ellipse cx="65" cy="120" rx="8" ry="5" fill="#d8b4fe" opacity="0.5"/>
+  <ellipse cx="135" cy="120" rx="8" ry="5" fill="#d8b4fe" opacity="0.5"/>
+  <!-- Smile -->
+  <path d="M90 130 Q100 140 110 130" stroke="#a855f7" fill="none" stroke-width="3" stroke-linecap="round"/>
+  <!-- Glowing mark on forehead -->
+  <path d="M95 70 L100 60 L105 70 L100 80 Z" fill="#c084fc"/>
+</svg>

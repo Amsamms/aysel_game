@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 180">
+  <!-- Star streaks -->
+  <path d="M30 20 Q20 80 30 140 Q20 160 30 180" stroke="#1e1b4b" fill="none" stroke-width="18"/>
+  <path d="M80 10 Q75 70 80 130 Q75 155 80 180" stroke="#312e81" fill="none" stroke-width="22"/>
+  <path d="M130 20 Q140 80 130 140 Q140 160 130 180" stroke="#1e1b4b" fill="none" stroke-width="18"/>
+  <!-- Star streaks -->
+  <path d="M50 30 Q45 80 50 130" stroke="#fbbf24" fill="none" stroke-width="6"/>
+  <path d="M110 30 Q115 80 110 130" stroke="#c084fc" fill="none" stroke-width="6"/>
+  <!-- Stars -->
+  <polygon points="50,50 52,56 58,56 53,60 55,66 50,62 45,66 47,60 42,56 48,56" fill="#fbbf24"/>
+  <polygon points="110,70 112,76 118,76 113,80 115,86 110,82 105,86 107,80 102,76 108,76" fill="#c084fc"/>
+</svg>

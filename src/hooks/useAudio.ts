@@ -2,19 +2,22 @@ import { useEffect, useRef, useCallback } from 'react';
 import { Howl } from 'howler';
 import { useGame } from '../contexts/GameContext';
 
+// Get the base URL for assets (handles GitHub Pages deployment)
+const BASE = import.meta.env.BASE_URL;
+
 // Sound effect types
 type SfxType = 'click' | 'sparkle' | 'apply' | 'success' | 'star' | 'whoosh';
 
-// Audio file paths
+// Audio file paths (using WAV for better compatibility)
 const AUDIO_PATHS = {
-  music: '/assets/audio/music/magical-theme.mp3',
+  music: `${BASE}assets/audio/music/magical-theme.wav`,
   sfx: {
-    click: '/assets/audio/sfx/click.mp3',
-    sparkle: '/assets/audio/sfx/sparkle.mp3',
-    apply: '/assets/audio/sfx/apply.mp3',
-    success: '/assets/audio/sfx/success.mp3',
-    star: '/assets/audio/sfx/star.mp3',
-    whoosh: '/assets/audio/sfx/whoosh.mp3',
+    click: `${BASE}assets/audio/sfx/click.wav`,
+    sparkle: `${BASE}assets/audio/sfx/sparkle.wav`,
+    apply: `${BASE}assets/audio/sfx/apply.wav`,
+    success: `${BASE}assets/audio/sfx/success.wav`,
+    star: `${BASE}assets/audio/sfx/star.wav`,
+    whoosh: `${BASE}assets/audio/sfx/whoosh.wav`,
   },
 };
 

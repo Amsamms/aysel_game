@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 180">
+  <!-- Flower braid -->
+  <path d="M80 10 Q70 50 75 90 Q70 130 80 170" stroke="#84cc16" fill="none" stroke-width="20"/>
+  <path d="M80 10 Q90 50 85 90 Q90 130 80 170" stroke="#22c55e" fill="none" stroke-width="15"/>
+  <!-- Flowers woven in -->
+  <circle cx="75" cy="30" r="10" fill="#f472b6"/>
+  <circle cx="85" cy="60" r="10" fill="#fbbf24"/>
+  <circle cx="75" cy="90" r="10" fill="#c084fc"/>
+  <circle cx="85" cy="120" r="10" fill="#fb923c"/>
+  <circle cx="80" cy="150" r="10" fill="#22d3ee"/>
+</svg>

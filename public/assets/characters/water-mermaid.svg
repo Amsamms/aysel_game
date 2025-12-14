@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300">
+  <!-- Tail -->
+  <path d="M100 200 Q80 250 100 290 Q120 250 100 200" fill="#22d3ee"/>
+  <path d="M80 280 Q60 290 50 280 M120 280 Q140 290 150 280" stroke="#22d3ee" fill="none" stroke-width="8"/>
+  <!-- Body -->
+  <ellipse cx="100" cy="180" rx="35" ry="45" fill="#fef3c7"/>
+  <!-- Shell top -->
+  <ellipse cx="85" cy="175" rx="15" ry="12" fill="#f0abfc"/>
+  <ellipse cx="115" cy="175" rx="15" ry="12" fill="#f0abfc"/>
+  <!-- Head -->
+  <circle cx="100" cy="100" r="50" fill="#fef3c7"/>
+  <!-- Hair -->
+  <path d="M50 80 Q30 30 60 20 Q100 10 140 20 Q170 30 150 80 Q160 150 140 200 L60 200 Q40 150 50 80" fill="#06b6d4"/>
+  <!-- Eyes -->
+  <ellipse cx="80" cy="95" rx="12" ry="16" fill="white"/>
+  <ellipse cx="120" cy="95" rx="12" ry="16" fill="white"/>
+  <circle cx="82" cy="98" r="8" fill="#0891b2"/>
+  <circle cx="122" cy="98" r="8" fill="#0891b2"/>
+  <circle cx="85" cy="94" r="3" fill="white"/>
+  <circle cx="125" cy="94" r="3" fill="white"/>
+  <!-- Blush -->
+  <ellipse cx="65" cy="110" rx="8" ry="5" fill="#fda4af" opacity="0.5"/>
+  <ellipse cx="135" cy="110" rx="8" ry="5" fill="#fda4af" opacity="0.5"/>
+  <!-- Smile -->
+  <path d="M90 120 Q100 130 110 120" stroke="#f472b6" fill="none" stroke-width="3" stroke-linecap="round"/>
+  <!-- Starfish -->
+  <polygon points="100,50 103,58 112,58 105,63 108,72 100,67 92,72 95,63 88,58 97,58" fill="#fbbf24"/>
+</svg>

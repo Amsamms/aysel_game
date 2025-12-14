@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { Application, Container, Graphics, Text, TextStyle } from 'pixi.js';
+import { Application, Container, Graphics, Text, TextStyle, Sprite, Assets } from 'pixi.js';
 import { useGame } from '../../contexts/GameContext';
 import { ItemPanel } from '../ui/ItemPanel';
 
@@ -22,6 +22,7 @@ export const GameCanvas: React.FC = () => {
   const canvasRef = useRef<HTMLDivElement>(null);
   const appRef = useRef<Application | null>(null);
   const particlesRef = useRef<Particle[]>([]);
+  const characterSpriteRef = useRef<Sprite | null>(null);
   const [isLoaded, setIsLoaded] = useState(false);
 
   // Initialize PixiJS
@@ -42,6 +43,11 @@ export const GameCanvas: React.FC = () => {
       canvasRef.current?.appendChild(app.canvas);
       appRef.current = app;
 
+      // Create background container
+      const bgContainer = new Container();
+      bgContainer.label = 'background';
+      app.stage.addChild(bgContainer);
+
       // Create main container
       const mainContainer = new Container();
       mainContainer.label = 'main';
@@ -51,16 +57,65 @@ export const GameCanvas: React.FC = () => {
       const characterContainer = new Container();
       characterContainer.label = 'character';
       characterContainer.x = app.screen.width / 2;
-      characterContainer.y = app.screen.height / 2 - 80;
+      characterContainer.y = app.screen.height / 2 - 50;
       mainContainer.addChild(characterContainer);
+
+      // Create items container (for applied makeup)
+      const itemsContainer = new Container();
+      itemsContainer.label = 'items';
+      characterContainer.addChild(itemsContainer);
 
       // Create particles container
       const particlesContainer = new Container();
       particlesContainer.label = 'particles';
       mainContainer.addChild(particlesContainer);
 
-      // Draw placeholder character
-      drawCharacter(characterContainer);
+      // Load background
+      if (currentLevel) {
+        try {
+          const bgTexture = await Assets.load(currentLevel.backgroundUrl);
+          const bgSprite = new Sprite(bgTexture);
+          bgSprite.width = app.screen.width;
+          bgSprite.height = app.screen.height;
+          bgContainer.addChild(bgSprite);
+        } catch {
+          // Draw gradient background if image fails
+          const bg = new Graphics();
+          bg.rect(0, 0, app.screen.width, app.screen.height);
+          bg.fill({ color: 0x1e1b4b });
+          bgContainer.addChild(bg);
+        }
+
+        // Load character SVG
+        try {
+          const charTexture = await Assets.load(currentLevel.character.baseImageUrl);
+          const charSprite = new Sprite(charTexture);
+          charSprite.anchor.set(0.5);
+          charSprite.scale.set(1.2);
+          characterSpriteRef.current = charSprite;
+          characterContainer.addChildAt(charSprite, 0);
+        } catch {
+          // Draw placeholder if image fails
+          drawPlaceholderCharacter(characterContainer);
+        }
+
+        // Add character name
+        const style = new TextStyle({
+          fontFamily: 'Comic Sans MS, cursive',
+          fontSize: 20,
+          fill: 0xffffff,
+          align: 'center',
+          dropShadow: {
+            color: 0x000000,
+            blur: 4,
+            distance: 2,
+          },
+        });
+        const nameText = new Text({ text: currentLevel.character.name, style });
+        nameText.anchor.set(0.5);
+        nameText.y = 180;
+        characterContainer.addChild(nameText);
+      }
 
       // Start animation loop
       app.ticker.add((ticker) => {
@@ -80,7 +135,7 @@ export const GameCanvas: React.FC = () => {
         const char = main?.getChildByLabel('character') as Container;
         if (char) {
           char.x = window.innerWidth / 2;
-          char.y = window.innerHeight / 2 - 80;
+          char.y = window.innerHeight / 2 - 50;
         }
       }
     };
@@ -94,91 +149,49 @@ export const GameCanvas: React.FC = () => {
         appRef.current = null;
       }
     };
-  }, []);
+  }, [currentLevel]);
 
-  // Draw placeholder character
-  const drawCharacter = (container: Container) => {
-    // Clear existing
-    container.removeChildren();
+  // Draw placeholder character if SVG fails to load
+  const drawPlaceholderCharacter = (container: Container) => {
+    const graphics = new Graphics();
 
-    // Body circle (anime style)
-    const body = new Graphics();
-    body.circle(0, 100, 80);
-    body.fill({ color: 0xffd5c8 }); // Skin tone
-    container.addChild(body);
+    // Body
+    graphics.circle(0, 100, 60);
+    graphics.fill({ color: 0xfef3c7 });
 
-    // Head circle
-    const head = new Graphics();
-    head.circle(0, -20, 100);
-    head.fill({ color: 0xffd5c8 });
-    container.addChild(head);
+    // Head
+    graphics.circle(0, 0, 80);
+    graphics.fill({ color: 0xfef3c7 });
 
-    // Big anime eyes (left)
-    const leftEye = new Graphics();
-    leftEye.ellipse(-35, -30, 25, 35);
-    leftEye.fill({ color: 0xffffff });
-    leftEye.circle(-35, -25, 15);
-    leftEye.fill({ color: 0x6366f1 }); // Purple iris
-    leftEye.circle(-30, -30, 6);
-    leftEye.fill({ color: 0xffffff }); // Shine
-    container.addChild(leftEye);
+    // Eyes
+    graphics.ellipse(-25, -10, 15, 20);
+    graphics.fill({ color: 0xffffff });
+    graphics.circle(-25, -5, 10);
+    graphics.fill({ color: 0x6366f1 });
 
-    // Big anime eyes (right)
-    const rightEye = new Graphics();
-    rightEye.ellipse(35, -30, 25, 35);
-    rightEye.fill({ color: 0xffffff });
-    rightEye.circle(35, -25, 15);
-    rightEye.fill({ color: 0x6366f1 });
-    rightEye.circle(40, -30, 6);
-    rightEye.fill({ color: 0xffffff });
-    container.addChild(rightEye);
+    graphics.ellipse(25, -10, 15, 20);
+    graphics.fill({ color: 0xffffff });
+    graphics.circle(25, -5, 10);
+    graphics.fill({ color: 0x6366f1 });
 
-    // Cute nose
-    const nose = new Graphics();
-    nose.circle(0, 10, 5);
-    nose.fill({ color: 0xffb8a8 });
-    container.addChild(nose);
+    // Smile
+    graphics.arc(0, 20, 20, 0, Math.PI, false);
+    graphics.stroke({ color: 0xf472b6, width: 3 });
 
-    // Lips placeholder
-    const lips = new Graphics();
-    lips.ellipse(0, 45, 20, 8);
-    lips.fill({ color: 0xffb6c1 });
-    container.addChild(lips);
-
-    // Hair placeholder
-    const hair = new Graphics();
-    hair.ellipse(0, -80, 110, 60);
-    hair.fill({ color: 0x8b5cf6 }); // Purple hair
-    container.addChild(hair);
-
-    // Character name
-    if (currentLevel) {
-      const style = new TextStyle({
-        fontFamily: 'Comic Sans MS',
-        fontSize: 18,
-        fill: 0xffffff,
-        align: 'center',
-      });
-      const nameText = new Text({ text: currentLevel.character.name, style });
-      nameText.anchor.set(0.5);
-      nameText.y = 220;
-      container.addChild(nameText);
-    }
+    container.addChildAt(graphics, 0);
   };
 
   // Update particles
   const updateParticles = (container: Container, delta: number) => {
-    // Update existing particles
     particlesRef.current = particlesRef.current.filter((p) => {
       p.x += p.vx * delta;
       p.y += p.vy * delta;
-      p.vy += 0.1 * delta; // Gravity
+      p.vy += 0.1 * delta;
       p.life -= delta;
       p.rotation += 0.1 * delta;
       return p.life > 0;
     });
 
-    // Redraw particles
     container.removeChildren();
     particlesRef.current.forEach((p) => {
       const graphics = new Graphics();
@@ -216,16 +229,17 @@ export const GameCanvas: React.FC = () => {
 
     const main = appRef.current.stage.getChildByLabel('main') as Container;
     const character = main?.getChildByLabel('character') as Container;
-    if (!character) return;
+    const itemsContainer = character?.getChildByLabel('items') as Container;
+    if (!itemsContainer) return;
 
-    // Redraw character with applied items
-    drawCharacter(character);
+    // Clear previous items
+    itemsContainer.removeChildren();
 
-    // Draw applied items on top
+    // Draw applied items
     appliedItems.forEach((applied, index) => {
       const graphics = new Graphics();
 
-      // Draw colored circles representing items
+      // Draw colored shapes representing items
       const categoryColors: Record<string, number> = {
         lips: 0xff6b8a,
         eyes: 0x818cf8,
@@ -236,14 +250,48 @@ export const GameCanvas: React.FC = () => {
       };
 
       const color = categoryColors[applied.item.category] || 0xffffff;
-      graphics.circle(applied.position.x, applied.position.y, 15);
-      graphics.fill({ color, alpha: 0.8 });
+
+      // Different shapes for different categories
+      switch (applied.item.category) {
+        case 'lips':
+          graphics.ellipse(applied.position.x, applied.position.y, 25, 10);
+          break;
+        case 'eyes':
+          graphics.ellipse(applied.position.x - 30, applied.position.y, 20, 12);
+          graphics.ellipse(applied.position.x + 30, applied.position.y, 20, 12);
+          break;
+        case 'cheeks':
+          graphics.circle(applied.position.x - 40, applied.position.y, 15);
+          graphics.circle(applied.position.x + 40, applied.position.y, 15);
+          break;
+        case 'hair':
+          graphics.ellipse(applied.position.x, applied.position.y, 70, 40);
+          break;
+        case 'accessories':
+          graphics.star(applied.position.x, applied.position.y, 5, 20, 10);
+          break;
+        case 'wings':
+          graphics.ellipse(applied.position.x - 80, applied.position.y, 40, 60);
+          graphics.ellipse(applied.position.x + 80, applied.position.y, 40, 60);
+          break;
+        default:
+          graphics.circle(applied.position.x, applied.position.y, 15);
+      }
+
+      graphics.fill({ color, alpha: 0.7 });
 
       // Add glow effect
-      graphics.circle(applied.position.x, applied.position.y, 20);
-      graphics.fill({ color, alpha: 0.3 });
+      const glow = new Graphics();
+      if (applied.item.category === 'wings') {
+        glow.ellipse(applied.position.x - 80, applied.position.y, 45, 65);
+        glow.ellipse(applied.position.x + 80, applied.position.y, 45, 65);
+      } else {
+        glow.circle(applied.position.x, applied.position.y, 25);
+      }
+      glow.fill({ color, alpha: 0.2 });
 
-      character.addChild(graphics);
+      itemsContainer.addChild(glow);
+      itemsContainer.addChild(graphics);
 
       // Spawn sparkles when item is new
       if (index === appliedItems.length - 1) {
@@ -254,18 +302,17 @@ export const GameCanvas: React.FC = () => {
         );
       }
     });
-  }, [appliedItems, isLoaded, currentLevel, spawnSparkles]);
+  }, [appliedItems, isLoaded, spawnSparkles]);
 
   // Continuous ambient sparkles
   useEffect(() => {
     if (!appRef.current || !isLoaded) return;
 
     const interval = setInterval(() => {
-      // Random ambient sparkle
       if (Math.random() > 0.7) {
         spawnSparkles(
           Math.random() * window.innerWidth,
-          Math.random() * (window.innerHeight * 0.6),
+          Math.random() * (window.innerHeight * 0.5),
           3
         );
       }

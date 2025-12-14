@@ -1,15 +1,30 @@
 import type { MakeupItem, ItemCategory } from '../types';
 
+// Get the base URL for assets (handles GitHub Pages deployment)
+const BASE = import.meta.env.BASE_URL;
+
 // Helper to generate items for a category
 const createItems = (
   category: ItemCategory,
   items: Array<{ name: string; rarity: 'common' | 'rare' | 'legendary'; position: { x: number; y: number } }>
 ): MakeupItem[] => {
+  // Map category to folder name
+  const folderMap: Record<ItemCategory, string> = {
+    lips: 'makeup/lips',
+    eyes: 'makeup/eyes',
+    cheeks: 'makeup/cheeks',
+    hair: 'hairstyles',
+    accessories: 'accessories',
+    wings: 'makeup/wings',
+  };
+  const folder = folderMap[category];
+  const prefix = category === 'hair' ? 'hair' : category === 'accessories' ? 'accessories' : category;
+
   return items.map((item, index) => ({
     id: `${category}-${index + 1}`,
     name: item.name,
     category,
-    imageUrl: `/assets/makeup/${category}/${category}-${index + 1}.png`,
+    imageUrl: `${BASE}assets/${folder}/${prefix}-${index + 1}.svg`,
     rarity: item.rarity,
     position: item.position,
     scale: 1,

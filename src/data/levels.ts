@@ -2,13 +2,16 @@ import type { Level } from '../types';
 import { characters } from './characters';
 import { allItems } from './items';
 
+// Get the base URL for assets (handles GitHub Pages deployment)
+const BASE = import.meta.env.BASE_URL;
+
 // Each level has access to all items, but some are highlighted based on theme
 export const levels: Level[] = [
   {
     id: 1,
     name: 'Spring Garden',
     character: characters[0], // Forest Fairy
-    backgroundUrl: '/assets/backgrounds/spring-garden.jpg',
+    backgroundUrl: `${BASE}assets/backgrounds/spring-garden.jpg`,
     availableItems: allItems,
     unlockRequirement: null,
   },
@@ -16,7 +19,7 @@ export const levels: Level[] = [
     id: 2,
     name: 'Ocean Dreams',
     character: characters[1], // Water Mermaid
-    backgroundUrl: '/assets/backgrounds/ocean-dreams.jpg',
+    backgroundUrl: `${BASE}assets/backgrounds/ocean-dreams.jpg`,
     availableItems: allItems,
     unlockRequirement: 1,
   },
@@ -24,7 +27,7 @@ export const levels: Level[] = [
     id: 3,
     name: 'Rainbow Magic',
     character: characters[2], // Unicorn Princess
-    backgroundUrl: '/assets/backgrounds/rainbow-magic.jpg',
+    backgroundUrl: `${BASE}assets/backgrounds/rainbow-magic.jpg`,
     availableItems: allItems,
     unlockRequirement: 2,
   },
@@ -32,7 +35,7 @@ export const levels: Level[] = [
     id: 4,
     name: 'Starlight Night',
     character: characters[3], // Moon Fairy
-    backgroundUrl: '/assets/backgrounds/starlight-night.jpg',
+    backgroundUrl: `${BASE}assets/backgrounds/starlight-night.jpg`,
     availableItems: allItems,
     unlockRequirement: 3,
   },
@@ -40,7 +43,7 @@ export const levels: Level[] = [
     id: 5,
     name: 'Enchanted Garden',
     character: characters[4], // Flower Spirit
-    backgroundUrl: '/assets/backgrounds/enchanted-garden.jpg',
+    backgroundUrl: `${BASE}assets/backgrounds/enchanted-garden.jpg`,
     availableItems: allItems,
     unlockRequirement: 4,
   },
@@ -48,7 +51,7 @@ export const levels: Level[] = [
     id: 6,
     name: 'Ice Palace',
     character: characters[5], // Crystal Mermaid
-    backgroundUrl: '/assets/backgrounds/ice-palace.jpg',
+    backgroundUrl: `${BASE}assets/backgrounds/ice-palace.jpg`,
     availableItems: allItems,
     unlockRequirement: 5,
   },
@@ -56,7 +59,7 @@ export const levels: Level[] = [
     id: 7,
     name: 'Golden Kingdom',
     character: characters[6], // Sun Princess
-    backgroundUrl: '/assets/backgrounds/golden-kingdom.jpg',
+    backgroundUrl: `${BASE}assets/backgrounds/golden-kingdom.jpg`,
     availableItems: allItems,
     unlockRequirement: 6,
   },
@@ -64,7 +67,7 @@ export const levels: Level[] = [
     id: 8,
     name: 'Mystic Forest',
     character: characters[7], // Shadow Fairy
-    backgroundUrl: '/assets/backgrounds/mystic-forest.jpg',
+    backgroundUrl: `${BASE}assets/backgrounds/mystic-forest.jpg`,
     availableItems: allItems,
     unlockRequirement: 7,
   },
@@ -72,7 +75,7 @@ export const levels: Level[] = [
     id: 9,
     name: 'Cloud Castle',
     character: characters[8], // Rainbow Unicorn
-    backgroundUrl: '/assets/backgrounds/cloud-castle.jpg',
+    backgroundUrl: `${BASE}assets/backgrounds/cloud-castle.jpg`,
     availableItems: allItems,
     unlockRequirement: 8,
   },
@@ -80,7 +83,7 @@ export const levels: Level[] = [
     id: 10,
     name: 'Enchanted Throne',
     character: characters[9], // Queen of Magic
-    backgroundUrl: '/assets/backgrounds/enchanted-throne.jpg',
+    backgroundUrl: `${BASE}assets/backgrounds/enchanted-throne.jpg`,
     availableItems: allItems,
     unlockRequirement: 9,
   },

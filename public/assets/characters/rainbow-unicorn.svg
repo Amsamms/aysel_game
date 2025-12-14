@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300">
+  <!-- Body -->
+  <ellipse cx="100" cy="220" rx="40" ry="50" fill="#fef3c7"/>
+  <!-- Dress -->
+  <path d="M60 200 Q100 180 140 200 L155 280 Q100 290 45 280 Z" fill="url(#rainbow2)"/>
+  <defs>
+    <linearGradient id="rainbow2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ef4444"/>
+      <stop offset="20%" style="stop-color:#f97316"/>
+      <stop offset="40%" style="stop-color:#eab308"/>
+      <stop offset="60%" style="stop-color:#22c55e"/>
+      <stop offset="80%" style="stop-color:#3b82f6"/>
+      <stop offset="100%" style="stop-color:#a855f7"/>
+    </linearGradient>
+  </defs>
+  <!-- Head -->
+  <circle cx="100" cy="110" r="50" fill="#fef3c7"/>
+  <!-- Horn (rainbow) -->
+  <polygon points="100,15 93,70 107,70" fill="url(#horn2)"/>
+  <defs>
+    <linearGradient id="horn2" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#ef4444"/>
+      <stop offset="25%" style="stop-color:#eab308"/>
+      <stop offset="50%" style="stop-color:#22c55e"/>
+      <stop offset="75%" style="stop-color:#3b82f6"/>
+      <stop offset="100%" style="stop-color:#a855f7"/>
+    </linearGradient>
+  </defs>
+  <!-- Rainbow mane -->
+  <path d="M55 90 Q35 50 55 30 Q80 20 100 25 Q120 20 145 30 Q165 50 145 90" fill="#ef4444"/>
+  <path d="M50 100 Q25 140 35 190" stroke="#f97316" fill="none" stroke-width="12"/>
+  <path d="M45 110 Q20 150 30 200" stroke="#eab308" fill="none" stroke-width="10"/>
+  <path d="M40 120 Q15 160 25 210" stroke="#22c55e" fill="none" stroke-width="8"/>
+  <path d="M150 100 Q175 140 165 190" stroke="#3b82f6" fill="none" stroke-width="12"/>
+  <path d="M155 110 Q180 150 170 200" stroke="#a855f7" fill="none" stroke-width="10"/>
+  <!-- Eyes -->
+  <ellipse cx="80" cy="105" rx="12" ry="16" fill="white"/>
+  <ellipse cx="120" cy="105" rx="12" ry="16" fill="white"/>
+  <circle cx="82" cy="108" r="8" fill="#ec4899"/>
+  <circle cx="122" cy="108" r="8" fill="#ec4899"/>
+  <circle cx="85" cy="104" r="3" fill="white"/>
+  <circle cx="125" cy="104" r="3" fill="white"/>
+  <!-- Blush -->
+  <ellipse cx="65" cy="120" rx="8" ry="5" fill="#fda4af" opacity="0.5"/>
+  <ellipse cx="135" cy="120" rx="8" ry="5" fill="#fda4af" opacity="0.5"/>
+  <!-- Smile -->
+  <path d="M90 130 Q100 140 110 130" stroke="#ec4899" fill="none" stroke-width="3" stroke-linecap="round"/>
+  <!-- Unicorn ears -->
+  <ellipse cx="55" cy="70" rx="8" ry="15" fill="#fef3c7"/>
+  <ellipse cx="145" cy="70" rx="8" ry="15" fill="#fef3c7"/>
+</svg>

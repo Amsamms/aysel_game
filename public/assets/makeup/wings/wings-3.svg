@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 150">
+  <!-- Crystal wings -->
+  <polygon points="100,75 30,20 20,80 40,130" fill="#67e8f9" opacity="0.6"/>
+  <polygon points="100,75 170,20 180,80 160,130" fill="#67e8f9" opacity="0.6"/>
+  <polygon points="100,75 45,35 35,85" fill="#06b6d4" opacity="0.4"/>
+  <polygon points="100,75 155,35 165,85" fill="#06b6d4" opacity="0.4"/>
+</svg>

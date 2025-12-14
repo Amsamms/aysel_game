@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useGame } from '../../contexts/GameContext';
+import { useAudio } from '../../hooks/useAudio';
 
 // Floating sparkle component
 const Sparkle: React.FC<{ delay: number; left: string; size: number }> = ({ delay, left, size }) => {
@@ -21,6 +22,7 @@ const Sparkle: React.FC<{ delay: number; left: string; size: number }> = ({ dela
 
 export const MainMenu: React.FC = () => {
   const { goToLevelSelect, goToCollection, state, toggleMusic, toggleSfx } = useGame();
+  const { playClick, playSparkle } = useAudio();
   const [sparkles, setSparkles] = useState<Array<{ id: number; delay: number; left: string; size: number }>>([]);
 
   // Generate floating sparkles
@@ -79,14 +81,14 @@ export const MainMenu: React.FC = () => {
         {/* Buttons */}
         <div className="flex flex-col gap-4 w-full max-w-xs">
           <button
-            onClick={goToLevelSelect}
+            onClick={() => { playSparkle(); goToLevelSelect(); }}
             className="btn-magic text-xl py-4 animate-glow"
           >
             🎮 Play
           </button>
 
           <button
-            onClick={goToCollection}
+            onClick={() => { playClick(); goToCollection(); }}
             className="btn-magic text-xl py-4 bg-gradient-to-r from-indigo-500 to-purple-500"
           >
             📚 Collection ({state.progress.collection.length}/10)
@@ -96,7 +98,7 @@ export const MainMenu: React.FC = () => {
         {/* Settings */}
         <div className="flex gap-4 mt-4">
           <button
-            onClick={toggleMusic}
+            onClick={() => { playClick(); toggleMusic(); }}
             className={`w-14 h-14 rounded-full flex items-center justify-center text-2xl transition-all ${
               musicEnabled
                 ? 'bg-purple-600 text-white shadow-lg shadow-purple-500/50'
@@ -106,7 +108,7 @@ export const MainMenu: React.FC = () => {
             {musicEnabled ? '🎵' : '🔇'}
           </button>
           <button
-            onClick={toggleSfx}
+            onClick={() => { playClick(); toggleSfx(); }}
             className={`w-14 h-14 rounded-full flex items-center justify-center text-2xl transition-all ${
               sfxEnabled
                 ? 'bg-pink-600 text-white shadow-lg shadow-pink-500/50'

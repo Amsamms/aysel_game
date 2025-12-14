@@ -4,6 +4,13 @@ import { LevelSelect } from './components/ui/LevelSelect';
 import { CollectionBook } from './components/ui/CollectionBook';
 import { ResultScreen } from './components/ui/ResultScreen';
 import { GameCanvas } from './components/game/GameCanvas';
+import { useAudio } from './hooks/useAudio';
+
+// Audio manager component - initializes and manages game audio
+function AudioManager() {
+  useAudio();
+  return null;
+}
 
 // Screen router component
 function GameScreens() {
@@ -48,7 +55,12 @@ function GameApp() {
     return <LoadingScreen />;
   }
 
-  return <GameScreens />;
+  return (
+    <>
+      <AudioManager />
+      <GameScreens />
+    </>
+  );
 }
 
 function App() {

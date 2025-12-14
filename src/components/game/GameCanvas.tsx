@@ -235,73 +235,102 @@ export const GameCanvas: React.FC = () => {
     // Clear previous items
     itemsContainer.removeChildren();
 
-    // Draw applied items
-    appliedItems.forEach((applied, index) => {
-      const graphics = new Graphics();
+    // Load and draw applied items
+    const loadItems = async () => {
+      for (let index = 0; index < appliedItems.length; index++) {
+        const applied = appliedItems[index];
 
-      // Draw colored shapes representing items
-      const categoryColors: Record<string, number> = {
-        lips: 0xff6b8a,
-        eyes: 0x818cf8,
-        cheeks: 0xfda4af,
-        hair: 0xa78bfa,
-        accessories: 0xfbbf24,
-        wings: 0x67e8f9,
-      };
+        try {
+          // Load the actual SVG image for the item
+          const texture = await Assets.load(applied.item.imageUrl);
+          const sprite = new Sprite(texture);
+          sprite.anchor.set(0.5);
+          sprite.x = applied.position.x;
+          sprite.y = applied.position.y;
 
-      const color = categoryColors[applied.item.category] || 0xffffff;
+          // Scale based on category
+          const categoryScales: Record<string, number> = {
+            lips: 0.8,
+            eyes: 0.9,
+            cheeks: 0.7,
+            hair: 1.2,
+            accessories: 0.8,
+            wings: 1.5,
+          };
+          const scale = categoryScales[applied.item.category] || 1;
+          sprite.scale.set(scale);
 
-      // Different shapes for different categories
-      switch (applied.item.category) {
-        case 'lips':
-          graphics.ellipse(applied.position.x, applied.position.y, 25, 10);
-          break;
-        case 'eyes':
-          graphics.ellipse(applied.position.x - 30, applied.position.y, 20, 12);
-          graphics.ellipse(applied.position.x + 30, applied.position.y, 20, 12);
-          break;
-        case 'cheeks':
-          graphics.circle(applied.position.x - 40, applied.position.y, 15);
-          graphics.circle(applied.position.x + 40, applied.position.y, 15);
-          break;
-        case 'hair':
-          graphics.ellipse(applied.position.x, applied.position.y, 70, 40);
-          break;
-        case 'accessories':
-          graphics.star(applied.position.x, applied.position.y, 5, 20, 10);
-          break;
-        case 'wings':
-          graphics.ellipse(applied.position.x - 80, applied.position.y, 40, 60);
-          graphics.ellipse(applied.position.x + 80, applied.position.y, 40, 60);
-          break;
-        default:
-          graphics.circle(applied.position.x, applied.position.y, 15);
+          // Add glow effect behind the item
+          const categoryColors: Record<string, number> = {
+            lips: 0xff6b8a,
+            eyes: 0x818cf8,
+            cheeks: 0xfda4af,
+            hair: 0xa78bfa,
+            accessories: 0xfbbf24,
+            wings: 0x67e8f9,
+          };
+          const color = categoryColors[applied.item.category] || 0xffffff;
+
+          const glow = new Graphics();
+          glow.circle(applied.position.x, applied.position.y, 30 * scale);
+          glow.fill({ color, alpha: 0.3 });
+
+          itemsContainer.addChild(glow);
+          itemsContainer.addChild(sprite);
+        } catch {
+          // Fallback to simple shapes if image fails to load
+          const graphics = new Graphics();
+          const categoryColors: Record<string, number> = {
+            lips: 0xff6b8a,
+            eyes: 0x818cf8,
+            cheeks: 0xfda4af,
+            hair: 0xa78bfa,
+            accessories: 0xfbbf24,
+            wings: 0x67e8f9,
+          };
+          const color = categoryColors[applied.item.category] || 0xffffff;
+
+          switch (applied.item.category) {
+            case 'lips':
+              graphics.ellipse(applied.position.x, applied.position.y, 25, 10);
+              break;
+            case 'eyes':
+              graphics.ellipse(applied.position.x - 25, applied.position.y, 15, 10);
+              graphics.ellipse(applied.position.x + 25, applied.position.y, 15, 10);
+              break;
+            case 'cheeks':
+              graphics.circle(applied.position.x - 35, applied.position.y, 12);
+              graphics.circle(applied.position.x + 35, applied.position.y, 12);
+              break;
+            case 'hair':
+              graphics.ellipse(applied.position.x, applied.position.y, 60, 35);
+              break;
+            case 'accessories':
+              graphics.star(applied.position.x, applied.position.y, 5, 18, 9);
+              break;
+            case 'wings':
+              graphics.ellipse(applied.position.x - 70, applied.position.y, 35, 55);
+              graphics.ellipse(applied.position.x + 70, applied.position.y, 35, 55);
+              break;
+            default:
+              graphics.circle(applied.position.x, applied.position.y, 15);
+          }
+          graphics.fill({ color, alpha: 0.7 });
+          itemsContainer.addChild(graphics);
+        }
+
+        // Spawn sparkles when item is new
+        if (index === appliedItems.length - 1) {
+          spawnSparkles(
+            character.x + applied.position.x,
+            character.y + applied.position.y,
+            15
+          );
+        }
       }
+    };
 
-      graphics.fill({ color, alpha: 0.7 });
-
-      // Add glow effect
-      const glow = new Graphics();
-      if (applied.item.category === 'wings') {
-        glow.ellipse(applied.position.x - 80, applied.position.y, 45, 65);
-        glow.ellipse(applied.position.x + 80, applied.position.y, 45, 65);
-      } else {
-        glow.circle(applied.position.x, applied.position.y, 25);
-      }
-      glow.fill({ color, alpha: 0.2 });
-
-      itemsContainer.addChild(glow);
-      itemsContainer.addChild(graphics);
-
-      // Spawn sparkles when item is new
-      if (index === appliedItems.length - 1) {
-        spawnSparkles(
-          character.x + applied.position.x,
-          character.y + applied.position.y,
-          15
-        );
-      }
-    });
+    loadItems();
   }, [appliedItems, isLoaded, spawnSparkles]);
 
   // Continuous ambient sparkles

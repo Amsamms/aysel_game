@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 180">
+  <!-- Braided crown -->
+  <ellipse cx="80" cy="30" rx="60" ry="20" fill="none" stroke="#854d0e" stroke-width="15"/>
+  <ellipse cx="80" cy="30" rx="60" ry="20" fill="none" stroke="#a16207" stroke-width="8" stroke-dasharray="10 10"/>
+  <!-- Side braids -->
+  <path d="M30 50 Q20 100 30 150" stroke="#854d0e" fill="none" stroke-width="12"/>
+  <path d="M130 50 Q140 100 130 150" stroke="#854d0e" fill="none" stroke-width="12"/>
+  <!-- Flowers -->
+  <circle cx="50" cy="25" r="8" fill="#f472b6"/>
+  <circle cx="80" cy="18" r="8" fill="#fbbf24"/>
+  <circle cx="110" cy="25" r="8" fill="#c084fc"/>
+</svg>

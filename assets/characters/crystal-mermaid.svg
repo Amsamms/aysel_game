@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300">
+  <!-- Tail -->
+  <path d="M100 200 Q80 250 100 290 Q120 250 100 200" fill="#67e8f9"/>
+  <path d="M80 280 Q60 290 50 280 M120 280 Q140 290 150 280" stroke="#67e8f9" fill="none" stroke-width="8"/>
+  <!-- Ice crystals on tail -->
+  <polygon points="90,220 85,240 95,240" fill="white" opacity="0.7"/>
+  <polygon points="110,230 105,250 115,250" fill="white" opacity="0.7"/>
+  <!-- Body -->
+  <ellipse cx="100" cy="180" rx="35" ry="45" fill="#f0f9ff"/>
+  <!-- Crystal top -->
+  <polygon points="80,170 85,155 95,170" fill="#0ea5e9"/>
+  <polygon points="105,170 115,155 120,170" fill="#0ea5e9"/>
+  <!-- Head -->
+  <circle cx="100" cy="100" r="50" fill="#f0f9ff"/>
+  <!-- Hair -->
+  <path d="M50 80 Q30 30 60 20 Q100 10 140 20 Q170 30 150 80 Q160 130 140 180 L60 180 Q40 130 50 80" fill="#bae6fd"/>
+  <!-- Crystal crown -->
+  <polygon points="80,45 75,70 85,70" fill="#38bdf8"/>
+  <polygon points="100,35 95,65 105,65" fill="#0284c7"/>
+  <polygon points="120,45 115,70 125,70" fill="#38bdf8"/>
+  <!-- Eyes -->
+  <ellipse cx="80" cy="95" rx="12" ry="16" fill="white"/>
+  <ellipse cx="120" cy="95" rx="12" ry="16" fill="white"/>
+  <circle cx="82" cy="98" r="8" fill="#0284c7"/>
+  <circle cx="122" cy="98" r="8" fill="#0284c7"/>
+  <circle cx="85" cy="94" r="3" fill="white"/>
+  <circle cx="125" cy="94" r="3" fill="white"/>
+  <!-- Blush -->
+  <ellipse cx="65" cy="110" rx="8" ry="5" fill="#7dd3fc" opacity="0.5"/>
+  <ellipse cx="135" cy="110" rx="8" ry="5" fill="#7dd3fc" opacity="0.5"/>
+  <!-- Smile -->
+  <path d="M90 120 Q100 130 110 120" stroke="#38bdf8" fill="none" stroke-width="3" stroke-linecap="round"/>
+</svg>

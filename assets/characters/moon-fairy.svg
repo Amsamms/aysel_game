@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300">
+  <!-- Wings -->
+  <ellipse cx="45" cy="150" rx="35" ry="55" fill="#c4b5fd" opacity="0.6"/>
+  <ellipse cx="155" cy="150" rx="35" ry="55" fill="#c4b5fd" opacity="0.6"/>
+  <!-- Body -->
+  <ellipse cx="100" cy="220" rx="40" ry="50" fill="#fef3c7"/>
+  <!-- Dress -->
+  <path d="M60 200 Q100 180 140 200 L150 270 Q100 280 50 270 Z" fill="#312e81"/>
+  <!-- Stars on dress -->
+  <circle cx="80" cy="240" r="3" fill="#fbbf24"/>
+  <circle cx="120" cy="250" r="3" fill="#fbbf24"/>
+  <circle cx="100" cy="230" r="2" fill="#fbbf24"/>
+  <!-- Head -->
+  <circle cx="100" cy="110" r="50" fill="#fef3c7"/>
+  <!-- Hair -->
+  <path d="M50 90 Q30 40 60 20 Q100 5 140 20 Q170 40 150 90 Q155 140 145 180 L55 180 Q45 140 50 90" fill="#1e1b4b"/>
+  <!-- Moon in hair -->
+  <path d="M95 40 A20 20 0 1 1 95 80 A15 15 0 1 0 95 40" fill="#fef08a"/>
+  <!-- Eyes -->
+  <ellipse cx="80" cy="105" rx="12" ry="16" fill="white"/>
+  <ellipse cx="120" cy="105" rx="12" ry="16" fill="white"/>
+  <circle cx="82" cy="108" r="8" fill="#6366f1"/>
+  <circle cx="122" cy="108" r="8" fill="#6366f1"/>
+  <circle cx="85" cy="104" r="3" fill="white"/>
+  <circle cx="125" cy="104" r="3" fill="white"/>
+  <!-- Blush -->
+  <ellipse cx="65" cy="120" rx="8" ry="5" fill="#c4b5fd" opacity="0.5"/>
+  <ellipse cx="135" cy="120" rx="8" ry="5" fill="#c4b5fd" opacity="0.5"/>
+  <!-- Smile -->
+  <path d="M90 130 Q100 140 110 130" stroke="#c084fc" fill="none" stroke-width="3" stroke-linecap="round"/>
+</svg>

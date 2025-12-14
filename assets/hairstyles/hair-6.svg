@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 180">
+  <!-- Rainbow cascade -->
+  <path d="M30 20 Q15 80 25 140 Q15 160 25 180" stroke="#ef4444" fill="none" stroke-width="12"/>
+  <path d="M50 15 Q40 75 45 135 Q40 155 45 175" stroke="#f97316" fill="none" stroke-width="12"/>
+  <path d="M70 10 Q65 70 70 130 Q65 150 70 170" stroke="#eab308" fill="none" stroke-width="12"/>
+  <path d="M90 10 Q95 70 90 130 Q95 150 90 170" stroke="#22c55e" fill="none" stroke-width="12"/>
+  <path d="M110 15 Q120 75 115 135 Q120 155 115 175" stroke="#3b82f6" fill="none" stroke-width="12"/>
+  <path d="M130 20 Q145 80 135 140 Q145 160 135 180" stroke="#a855f7" fill="none" stroke-width="12"/>
+</svg>

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300">
+  <!-- Magic aura -->
+  <ellipse cx="100" cy="150" rx="80" ry="100" fill="url(#aura)" opacity="0.3"/>
+  <defs>
+    <radialGradient id="aura">
+      <stop offset="0%" style="stop-color:#c084fc"/>
+      <stop offset="100%" style="stop-color:transparent"/>
+    </radialGradient>
+  </defs>
+  <!-- Body -->
+  <ellipse cx="100" cy="220" rx="40" ry="50" fill="#fef3c7"/>
+  <!-- Royal dress -->
+  <path d="M55 195 Q100 175 145 195 L160 285 Q100 295 40 285 Z" fill="#7c3aed"/>
+  <path d="M65 200 Q100 185 135 200 L145 275 Q100 285 55 275 Z" fill="#8b5cf6"/>
+  <!-- Gold trim -->
+  <path d="M55 195 Q100 175 145 195" stroke="#fbbf24" fill="none" stroke-width="3"/>
+  <!-- Head -->
+  <circle cx="100" cy="105" r="50" fill="#fef3c7"/>
+  <!-- Hair -->
+  <path d="M50 85 Q30 35 60 15 Q100 0 140 15 Q170 35 150 85 Q160 140 150 195 L50 195 Q40 140 50 85" fill="#4c1d95"/>
+  <!-- Elegant crown -->
+  <path d="M55 65 L65 35 L80 55 L100 25 L120 55 L135 35 L145 65" fill="#fbbf24" stroke="#d97706" stroke-width="2"/>
+  <circle cx="100" cy="35" r="7" fill="#ef4444"/>
+  <circle cx="75" cy="50" r="4" fill="#3b82f6"/>
+  <circle cx="125" cy="50" r="4" fill="#22c55e"/>
+  <!-- Eyes -->
+  <ellipse cx="80" cy="100" rx="13" ry="17" fill="white"/>
+  <ellipse cx="120" cy="100" rx="13" ry="17" fill="white"/>
+  <circle cx="82" cy="103" r="9" fill="#6d28d9"/>
+  <circle cx="122" cy="103" r="9" fill="#6d28d9"/>
+  <circle cx="86" cy="99" r="3" fill="white"/>
+  <circle cx="126" cy="99" r="3" fill="white"/>
+  <!-- Blush -->
+  <ellipse cx="63" cy="115" rx="9" ry="6" fill="#f0abfc" opacity="0.5"/>
+  <ellipse cx="137" cy="115" rx="9" ry="6" fill="#f0abfc" opacity="0.5"/>
+  <!-- Elegant smile -->
+  <path d="M88 128 Q100 138 112 128" stroke="#a855f7" fill="none" stroke-width="3" stroke-linecap="round"/>
+  <!-- Magic sparkles -->
+  <circle cx="45" cy="140" r="3" fill="#fbbf24"/>
+  <circle cx="155" cy="130" r="3" fill="#fbbf24"/>
+  <circle cx="50" cy="180" r="2" fill="#c084fc"/>
+  <circle cx="150" cy="175" r="2" fill="#c084fc"/>
+</svg>

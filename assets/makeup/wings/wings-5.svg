@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 150">
+  <!-- Starlight wings -->
+  <ellipse cx="40" cy="75" rx="35" ry="50" fill="#fef08a" opacity="0.5"/>
+  <ellipse cx="160" cy="75" rx="35" ry="50" fill="#fef08a" opacity="0.5"/>
+  <!-- Stars -->
+  <polygon points="35,40 37,47 44,47 38,52 40,59 35,54 30,59 32,52 26,47 33,47" fill="#fbbf24"/>
+  <polygon points="165,40 167,47 174,47 168,52 170,59 165,54 160,59 162,52 156,47 163,47" fill="#fbbf24"/>
+  <polygon points="40,100 42,105 47,105 43,109 45,114 40,110 35,114 37,109 33,105 38,105" fill="#fbbf24"/>
+  <polygon points="160,100 162,105 167,105 163,109 165,114 160,110 155,114 157,109 153,105 158,105" fill="#fbbf24"/>
+</svg>

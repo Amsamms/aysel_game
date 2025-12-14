@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 150">
+  <!-- Butterfly wings -->
+  <ellipse cx="40" cy="50" rx="35" ry="45" fill="#f472b6" opacity="0.7"/>
+  <ellipse cx="40" cy="110" rx="25" ry="35" fill="#fb7185" opacity="0.6"/>
+  <ellipse cx="160" cy="50" rx="35" ry="45" fill="#f472b6" opacity="0.7"/>
+  <ellipse cx="160" cy="110" rx="25" ry="35" fill="#fb7185" opacity="0.6"/>
+  <!-- Wing patterns -->
+  <circle cx="40" cy="45" r="10" fill="white" opacity="0.5"/>
+  <circle cx="160" cy="45" r="10" fill="white" opacity="0.5"/>
+</svg>

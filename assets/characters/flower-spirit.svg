@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300">
+  <!-- Petal wings -->
+  <ellipse cx="40" cy="140" rx="30" ry="50" fill="#fbcfe8" opacity="0.7"/>
+  <ellipse cx="160" cy="140" rx="30" ry="50" fill="#fbcfe8" opacity="0.7"/>
+  <ellipse cx="55" cy="160" rx="25" ry="45" fill="#f9a8d4" opacity="0.6"/>
+  <ellipse cx="145" cy="160" rx="25" ry="45" fill="#f9a8d4" opacity="0.6"/>
+  <!-- Body -->
+  <ellipse cx="100" cy="220" rx="40" ry="50" fill="#fef3c7"/>
+  <!-- Dress (flower petals) -->
+  <ellipse cx="100" cy="260" rx="45" ry="30" fill="#f472b6"/>
+  <ellipse cx="75" cy="240" rx="20" ry="35" fill="#fb7185"/>
+  <ellipse cx="125" cy="240" rx="20" ry="35" fill="#fb7185"/>
+  <!-- Head -->
+  <circle cx="100" cy="110" r="50" fill="#fef3c7"/>
+  <!-- Hair -->
+  <path d="M50 90 Q40 50 60 30 Q100 15 140 30 Q160 50 150 90" fill="#ec4899"/>
+  <!-- Flower crown -->
+  <circle cx="60" cy="70" r="10" fill="#fbbf24"/>
+  <circle cx="100" cy="55" r="12" fill="#f472b6"/>
+  <circle cx="140" cy="70" r="10" fill="#fb923c"/>
+  <circle cx="80" cy="60" r="8" fill="#a78bfa"/>
+  <circle cx="120" cy="60" r="8" fill="#4ade80"/>
+  <!-- Eyes -->
+  <ellipse cx="80" cy="105" rx="12" ry="16" fill="white"/>
+  <ellipse cx="120" cy="105" rx="12" ry="16" fill="white"/>
+  <circle cx="82" cy="108" r="8" fill="#be185d"/>
+  <circle cx="122" cy="108" r="8" fill="#be185d"/>
+  <circle cx="85" cy="104" r="3" fill="white"/>
+  <circle cx="125" cy="104" r="3" fill="white"/>
+  <!-- Blush -->
+  <ellipse cx="65" cy="120" rx="8" ry="5" fill="#fda4af" opacity="0.6"/>
+  <ellipse cx="135" cy="120" rx="8" ry="5" fill="#fda4af" opacity="0.6"/>
+  <!-- Smile -->
+  <path d="M90 130 Q100 140 110 130" stroke="#f472b6" fill="none" stroke-width="3" stroke-linecap="round"/>
+</svg>

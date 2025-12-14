@@ -248,16 +248,22 @@ export const GameCanvas: React.FC = () => {
           sprite.x = applied.position.x;
           sprite.y = applied.position.y;
 
-          // Scale based on category
+          // Scale based on category - proportional to character size (head ~120px scaled)
+          // Lips SVG: 80px → target ~25px = 0.3
+          // Eyes SVG: 100px → target ~55px = 0.55
+          // Cheeks SVG: 120px → target ~65px = 0.55
+          // Hair SVG: 160px → target ~100px = 0.6
+          // Accessories SVG: 120px → target ~70px = 0.6
+          // Wings SVG: 200px → target ~120px = 0.6
           const categoryScales: Record<string, number> = {
-            lips: 0.8,
-            eyes: 0.9,
-            cheeks: 0.7,
-            hair: 1.2,
-            accessories: 0.8,
-            wings: 1.5,
+            lips: 0.25,
+            eyes: 0.5,
+            cheeks: 0.5,
+            hair: 0.6,
+            accessories: 0.55,
+            wings: 0.6,
           };
-          const scale = categoryScales[applied.item.category] || 1;
+          const scale = categoryScales[applied.item.category] || 0.5;
           sprite.scale.set(scale);
 
           // Add glow effect behind the item
@@ -272,8 +278,8 @@ export const GameCanvas: React.FC = () => {
           const color = categoryColors[applied.item.category] || 0xffffff;
 
           const glow = new Graphics();
-          glow.circle(applied.position.x, applied.position.y, 30 * scale);
-          glow.fill({ color, alpha: 0.3 });
+          glow.circle(applied.position.x, applied.position.y, 20 * scale);
+          glow.fill({ color, alpha: 0.2 });
 
           itemsContainer.addChild(glow);
           itemsContainer.addChild(sprite);

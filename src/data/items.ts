@@ -32,13 +32,14 @@ const createItems = (
 };
 
 // Lips - positioned at mouth area (relative to character center, scaled 1.2x)
+// Character mouth is at y=140 in SVG, center at y=150, scaled: (140-150)*1.2 = -12
 export const lipsItems: MakeupItem[] = createItems('lips', [
-  { name: 'Rose Petal Pink', rarity: 'common', position: { x: 0, y: -6 } },
-  { name: 'Cherry Blossom', rarity: 'common', position: { x: 0, y: -6 } },
-  { name: 'Coral Dream', rarity: 'common', position: { x: 0, y: -6 } },
-  { name: 'Fairy Berry', rarity: 'rare', position: { x: 0, y: -6 } },
-  { name: 'Sparkle Gloss', rarity: 'rare', position: { x: 0, y: -6 } },
-  { name: 'Rainbow Kiss', rarity: 'legendary', position: { x: 0, y: -6 } },
+  { name: 'Rose Petal Pink', rarity: 'common', position: { x: 0, y: -12 } },
+  { name: 'Cherry Blossom', rarity: 'common', position: { x: 0, y: -12 } },
+  { name: 'Coral Dream', rarity: 'common', position: { x: 0, y: -12 } },
+  { name: 'Fairy Berry', rarity: 'rare', position: { x: 0, y: -12 } },
+  { name: 'Sparkle Gloss', rarity: 'rare', position: { x: 0, y: -12 } },
+  { name: 'Rainbow Kiss', rarity: 'legendary', position: { x: 0, y: -12 } },
 ]);
 
 // Eyes - positioned at eye area
